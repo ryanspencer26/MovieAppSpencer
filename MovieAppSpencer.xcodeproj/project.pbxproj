@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		805ED86C2D3A954200753DE7 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805ED86B2D3A954200753DE7 /* CustomCell.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		80331E3B2D37F7CE002409C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		80331E212D37F7CB002409C6 /* MovieAppSpencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAppSpencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80331E3A2D37F7CE002409C6 /* MovieAppSpencerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppSpencerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80331E442D37F7CE002409C6 /* MovieAppSpencerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppSpencerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		805ED86B2D3A954200753DE7 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +93,7 @@
 		80331E182D37F7CB002409C6 = {
 			isa = PBXGroup;
 			children = (
+				805ED86B2D3A954200753DE7 /* CustomCell.swift */,
 				80331E232D37F7CB002409C6 /* MovieAppSpencer */,
 				80331E3D2D37F7CE002409C6 /* MovieAppSpencerTests */,
 				80331E472D37F7CE002409C6 /* MovieAppSpencerUITests */,
@@ -249,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805ED86C2D3A954200753DE7 /* CustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

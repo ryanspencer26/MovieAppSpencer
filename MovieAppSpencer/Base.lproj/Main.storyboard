@@ -135,14 +135,60 @@
                     <view key="view" contentMode="scaleToFill" id="ZQR-9K-kUW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-a6-Nkg">
+                                <rect key="frame" x="0.0" y="143" width="393" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gqv-Mn-m3k">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gqv-Mn-m3k" id="NKb-LH-9K7">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Movie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Oi-f6-r0T">
+                                <rect key="frame" x="73" y="103" width="201" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-zT-EoG">
+                                <rect key="frame" x="269" y="103" width="50" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="LKz-n3-4gh" eventType="touchUpInside" id="gCL-84-Ql8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ljf-ZZ-VSO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gg1-a6-Nkg" firstAttribute="bottom" secondItem="ljf-ZZ-VSO" secondAttribute="bottom" id="EEe-Pb-aVB"/>
+                            <constraint firstItem="GNL-zT-EoG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ljf-ZZ-VSO" secondAttribute="leading" id="EsJ-1l-3PJ"/>
+                            <constraint firstItem="2Oi-f6-r0T" firstAttribute="top" secondItem="ljf-ZZ-VSO" secondAttribute="top" id="Fhq-tY-369"/>
+                            <constraint firstItem="Gg1-a6-Nkg" firstAttribute="centerX" secondItem="ZQR-9K-kUW" secondAttribute="centerX" id="SxT-TD-YcS"/>
+                            <constraint firstItem="2Oi-f6-r0T" firstAttribute="leading" secondItem="ljf-ZZ-VSO" secondAttribute="leading" constant="73" id="V0P-Q9-tmp"/>
+                            <constraint firstItem="ljf-ZZ-VSO" firstAttribute="trailing" secondItem="GNL-zT-EoG" secondAttribute="trailing" constant="74" id="dPC-iq-1Dm"/>
+                            <constraint firstItem="ljf-ZZ-VSO" firstAttribute="trailing" secondItem="2Oi-f6-r0T" secondAttribute="trailing" constant="119" id="jOF-Ov-uj9"/>
+                            <constraint firstItem="2Oi-f6-r0T" firstAttribute="top" secondItem="GNL-zT-EoG" secondAttribute="top" id="qbn-F3-nXa"/>
+                            <constraint firstItem="2Oi-f6-r0T" firstAttribute="centerY" secondItem="GNL-zT-EoG" secondAttribute="centerY" id="tso-Qs-KJk"/>
+                            <constraint firstItem="Gg1-a6-Nkg" firstAttribute="top" secondItem="2Oi-f6-r0T" secondAttribute="bottom" constant="5" id="yuo-gm-7mh"/>
+                            <constraint firstItem="Gg1-a6-Nkg" firstAttribute="leading" secondItem="ljf-ZZ-VSO" secondAttribute="leading" id="zvc-YE-jho"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="GEg-fc-KXs"/>
+                    <connections>
+                        <outlet property="searchField" destination="2Oi-f6-r0T" id="6P3-78-Xx5"/>
+                        <outlet property="tableView" destination="Gg1-a6-Nkg" id="Zeh-y8-tHw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wy-i5-OAv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476" y="-835"/>
+            <point key="canvasLocation" x="2475.5725190839694" y="-835.21126760563379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fxZ-od-Kfi">
