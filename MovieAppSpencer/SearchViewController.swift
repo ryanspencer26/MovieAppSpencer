@@ -7,6 +7,16 @@
 
 import UIKit
 
+struct Movie: Codable {
+    
+    var Actors: String
+    var Year: String
+    var Director: String
+    var Genre: String
+    var Awards: String
+    
+}
+
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchField: UITextField!
@@ -25,7 +35,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getMovie(_ movie: String){
         
         let session = URLSession.shared
-        let url = URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=78557f93&type=movie&s=\(movie)")
+        let url = URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=78557f93&type=movie&r=json&s=\(movie)")
         let dataTask = session.dataTask(with: url!){ data, response, error in
             if error != nil{
                 print("Error")
@@ -33,7 +43,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else {
                 if let d = data {
                     if let jsonObj = try? JSONSerialization.jsonObject(with: d, options: .fragmentsAllowed) as? NSDictionary{
-                        print(jsonObj)
+                        if let movies = jsonObj.value(forKey: "Search") as? [NSDictionary]{
+                            for movie in movies{
+                                print(movie.value(forKey: "Title")!)
+                            }
+                        }
                     } else {
                         print("json object is nil")
                     }
@@ -53,7 +67,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell
-        cell.configure(movies[indexPath.row])
+        //cell.configure(movie: movies[indexPath.row])
         return cell
     }
     

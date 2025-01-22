@@ -16,8 +16,28 @@ class CustomCell: UITableViewCell{
 //
 //    @IBOutlet weak var watchlistButton: UITextView!
     
-    func configure(_ movie: String){
+    @IBOutlet weak var titleOutlet: UILabel!
+    
+    @IBOutlet weak var infoOutlet: UILabel!
+    
+    
+    
+    func configure(movie: Movie){
        
+        
+        
+    }
+    
+    @IBAction func watchlistAction(_ sender: Any) {
+        
+        
+        
+    }
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        
+        
+        
     }
     
 }
