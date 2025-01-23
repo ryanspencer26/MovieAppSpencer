@@ -7,6 +7,13 @@
 
 import UIKit
 
+class AppData: Codable {
+    
+    static var watchlist = [String]()
+    static var favorites = [String]()
+    
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

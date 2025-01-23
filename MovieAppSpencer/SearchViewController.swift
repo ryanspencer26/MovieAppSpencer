@@ -24,6 +24,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     var movies = [String]()
+    var years = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +45,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let d = data {
                     if let jsonObj = try? JSONSerialization.jsonObject(with: d, options: .fragmentsAllowed) as? NSDictionary{
                         if let movies = jsonObj.value(forKey: "Search") as? [NSDictionary]{
+                            print(movies)
                             for movie in movies{
-                                print(movie.value(forKey: "Title")!)
+                                self.movies.append(movie.value(forKey: "Title")! as! String)
+                                self.years.append(movie.value(forKey: "Year")! as! String)
+                            }
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
                             }
                         }
                     } else {
@@ -67,12 +73,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell
-        //cell.configure(movie: movies[indexPath.row])
+        cell.configure(movie: movies[indexPath.row], year: years[indexPath.row])
         return cell
     }
     
     @IBAction func searchAction(_ sender: Any) {
         
+        self.movies = [String]()
+        self.years = [String]()
         if searchField.text != "" && searchField.text != "The" {
             getMovie(searchField.text!)
             tableView.reloadData()

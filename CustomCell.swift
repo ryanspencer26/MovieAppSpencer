@@ -10,33 +10,43 @@ import UIKit
 
 class CustomCell: UITableViewCell{
     
-//    @IBOutlet weak var movieLabel: UILabel!
-//
-//    @IBOutlet weak var favButton: UITextView!
-//
-//    @IBOutlet weak var watchlistButton: UITextView!
-    
     @IBOutlet weak var titleOutlet: UILabel!
     
     @IBOutlet weak var infoOutlet: UILabel!
     
+    @IBOutlet weak var watchButton: UIButton!
+    
+    @IBOutlet weak var favButton: UIButton!
     
     
-    func configure(movie: Movie){
+    func configure(movie: String, year: String){
        
-        
+        titleOutlet.text = movie
+        infoOutlet.text = year
+        if AppData.watchlist.contains(movie) {
+            watchButton.imageView!.image = UIImage.init(systemName: "checkmark")
+        }
+        if AppData.favorites.contains(movie) {
+            favButton.imageView!.image = UIImage.init(systemName: "star.fill")
+        }
         
     }
     
-    @IBAction func watchlistAction(_ sender: Any) {
+    @IBAction func watchlistAction(_ sender: UIButton) {
         
-        
+//        if watchButton.currentImage!.isEqual(UIImage(named: "plus")) {
+//            AppData.watchlist.append(titleOutlet.text!)
+//            sender.imageView!.image = UIImage.init(systemName: "checkmark")
+//        }
         
     }
     
-    @IBAction func favoriteAction(_ sender: Any) {
+    @IBAction func favoriteAction(_ sender: UIButton) {
         
-        
+//        if favButton.currentImage!.isEqual(UIImage(named: "star")) {
+//            AppData.favorites.append(titleOutlet.text!)
+//            sender.imageView!.image = UIImage.init(systemName: "star.fill")
+//        }
         
     }
     
