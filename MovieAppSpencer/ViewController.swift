@@ -11,6 +11,7 @@ class AppData: Codable {
     
     static var watchlist = [String]()
     static var favorites = [String]()
+    static var currentMovie: String!
     
 }
 

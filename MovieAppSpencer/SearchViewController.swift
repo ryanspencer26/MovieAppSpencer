@@ -7,16 +7,6 @@
 
 import UIKit
 
-struct Movie: Codable {
-    
-    var Actors: String
-    var Year: String
-    var Director: String
-    var Genre: String
-    var Awards: String
-    
-}
-
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchField: UITextField!
@@ -91,6 +81,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.present(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AppData.currentMovie = movies[indexPath.row]
+        performSegue(withIdentifier: "movieInfo", sender: self)
     }
     
 }
