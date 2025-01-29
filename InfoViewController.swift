@@ -14,13 +14,18 @@ struct Movie: Codable {
     var Director: String
     var Genre: String
     var Awards: String
+    var Poster: String
     
 }
 
 class InfoViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-
+    
+    @IBOutlet weak var imageOutlet: UIImageView!
+    
+    @IBOutlet weak var textViewOutlet: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,7 +36,7 @@ class InfoViewController: UIViewController {
     func getMovie(_ movie: String){
         
         let session = URLSession.shared
-        let url = URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=78557f93&t=\(movie)")
+        let url = URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=78557f93&type=movie&t=\(movie)")
         let dataTask = session.dataTask(with: url!){ data, response, error in
             if error != nil{
                 let alert = UIAlertController(title: "Error", message: "Movie not found.", preferredStyle: .alert)
@@ -53,11 +58,15 @@ class InfoViewController: UIViewController {
                             }
                             return
                         }
-                        if let year = jsonObj.value(forKey: "Year"){
-                            print("\(movie) was released in \(year)")
+                        print(jsonObj)
+                        //get Movie object with JSONDecoder
+                        if let movieObj = try? JSONDecoder().decode(Movie.self, from: d){
                             DispatchQueue.main.async {
-                                //textField
+                                self.textViewOutlet.text = "Year: \(movieObj.Year)\nActors: \(movieObj.Actors)\nDirector: \(movieObj.Director)\nGenre: \(movieObj.Genre)\nAwards: \(movieObj.Awards)"
+                                self.imageOutlet.image = UIImage(named: movieObj.Poster)
                             }
+                        } else{
+                            print("error decoding to movie object")
                         }
                     } else {
                         print("json object is nil")

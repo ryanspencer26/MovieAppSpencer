@@ -2,8 +2,6 @@
 //  SearchViewController.swift
 //  MovieAppSpencer
 //
-//  Created by RYAN SPENCER on 1/16/25.
-//
 
 import UIKit
 

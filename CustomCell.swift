@@ -34,19 +34,25 @@ class CustomCell: UITableViewCell{
     
     @IBAction func watchlistAction(_ sender: UIButton) {
         
-//        if watchButton.currentImage!.isEqual(UIImage(named: "plus")) {
-//            AppData.watchlist.append(titleOutlet.text!)
-//            sender.imageView!.image = UIImage.init(systemName: "checkmark")
-//        }
+        if watchButton.image(for: .normal) == UIImage(systemName: "plus") {
+            AppData.watchlist.append(titleOutlet.text!)
+            watchButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        } else {
+            watchButton.setImage(UIImage(systemName: "plus"), for: .normal)
+            //remove from watchlist
+        }
         
     }
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         
-//        if favButton.currentImage!.isEqual(UIImage(named: "star")) {
-//            AppData.favorites.append(titleOutlet.text!)
-//            sender.imageView!.image = UIImage.init(systemName: "star.fill")
-//        }
+        if favButton.image(for: .normal) == UIImage(systemName: "star") {
+            AppData.favorites.append(titleOutlet.text!)
+            favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            favButton.setImage(UIImage(systemName: "star"), for: .normal)
+            //remove from favorites
+        }
         
     }
     
