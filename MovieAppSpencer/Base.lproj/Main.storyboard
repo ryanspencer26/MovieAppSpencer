@@ -266,12 +266,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="watchAction:" destination="7S0-JR-ew8" eventType="touchUpInside" id="wS6-d8-Y1y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3t-ab-2R8">
                                 <rect key="frame" x="210" y="549" width="52" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                <connections>
+                                    <action selector="favAction:" destination="7S0-JR-ew8" eventType="touchUpInside" id="PhN-Io-QCN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="moU-ez-9r4"/>
@@ -279,9 +285,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="g4I-1P-ff2"/>
                     <connections>
+                        <outlet property="favButton" destination="J3t-ab-2R8" id="UlB-7M-Jzn"/>
                         <outlet property="imageOutlet" destination="XKn-sS-say" id="wLr-wb-7M2"/>
                         <outlet property="textViewOutlet" destination="RSP-qE-yCi" id="rbu-fB-MN5"/>
                         <outlet property="titleLabel" destination="Rha-Fx-MXn" id="ak2-0V-YhK"/>
+                        <outlet property="watchButton" destination="g3k-ZB-LB2" id="zbY-Ex-AXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFt-yz-gXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -26,11 +26,27 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var textViewOutlet: UITextView!
     
+    @IBOutlet weak var favButton: UIButton!
+    
+    @IBOutlet weak var watchButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         titleLabel.text = AppData.currentMovie
         getMovie(AppData.currentMovie)
+        for movie in AppData.favorites {
+            if movie == AppData.currentMovie{
+                favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                break
+            }
+        }
+        for movie in AppData.watchlist {
+            if movie == AppData.currentMovie{
+                watchButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+                break
+            }
+        }
     }
     
     func getMovie(_ movie: String){
@@ -81,5 +97,35 @@ class InfoViewController: UIViewController {
         
     }
     
-
+    
+    @IBAction func favAction(_ sender: UIButton) {
+        if favButton.image(for: .normal) == UIImage(systemName: "star") {
+            AppData.favorites.append(titleLabel.text!)
+            favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            favButton.setImage(UIImage(systemName: "star"), for: .normal)
+            for i in 0...AppData.favorites.count {
+                if AppData.favorites[i] == AppData.currentMovie {
+                    AppData.favorites.remove(at: i)
+                    break
+                }
+            }
+        }
+    }
+    
+    @IBAction func watchAction(_ sender: UIButton) {
+        if watchButton.image(for: .normal) == UIImage(systemName: "plus") {
+            AppData.watchlist.append(titleLabel.text!)
+            watchButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        } else {
+            watchButton.setImage(UIImage(systemName: "plus"), for: .normal)
+            for i in 0...AppData.watchlist.count {
+                if AppData.watchlist[i] == AppData.currentMovie {
+                    AppData.watchlist.remove(at: i)
+                    break
+                }
+            }
+        }
+    }
+    
 }
